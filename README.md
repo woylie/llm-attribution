@@ -61,3 +61,5 @@ check.
 The check only finds attribution that is left in the commits. Anyone can remove
 the trailers before pushing, and a pull request can change the workflow that
 uses the action.
+
+This is a test.
