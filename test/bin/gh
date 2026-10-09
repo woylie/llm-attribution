@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# stands in for `gh api --paginate --slurp`: one page holding the fixture
+jq -s . "$FIXTURE"
