@@ -1,0 +1,19 @@
+name: LLM attribution
+description: Fails a pull request if a commit has an LLM coding tool as its author, committer or co-author.
+author: Mathias Polligkeit
+
+branding:
+  icon: git-commit
+  color: red
+
+runs:
+  using: composite
+  steps:
+    - name: Check commits
+      shell: bash
+      env:
+        GH_TOKEN: ${{ github.token }}
+        REPOSITORY: ${{ github.repository }}
+        PR_NUMBER: ${{ github.event.pull_request.number }}
+        COMMIT_COUNT: ${{ github.event.pull_request.commits }}
+      run: bash "$GITHUB_ACTION_PATH/scripts/check.sh"
